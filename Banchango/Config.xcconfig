@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  Banchango
+//
+//  Created by 김동현 on 9/9/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+KAKAO_NATIVE_APP_KEY = e0f6ce0894f942b4820e282e314d22af
