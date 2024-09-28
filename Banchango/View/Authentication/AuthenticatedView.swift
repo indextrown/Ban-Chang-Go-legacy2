@@ -37,18 +37,9 @@ struct AuthenticatedView: View {
         Group {
            if authViewModel.isLoading {
                LoadingView() // 로딩 화면 표시
-           //} else if authViewModel.isLoggedIn, let user = authViewModel.user {
-               
            } else if authViewModel.isLoggedIn{
-               // HomeView(authViewModel: authViewModel, user: user) // 로그인된 상태일 때 HomeView로 이동
                TabView {
-                   //HomeView(draw: $draw)
                    HomeView() // draw 변수를 Binding으로 전달
-//                       .onAppear {
-//                           DispatchQueue.main.async {
-//                               self.draw = true
-//                           }
-//                       }
                        .onDisappear {
                            print("hello")
                        }

@@ -31,6 +31,7 @@
 		DF5368C82C986ECD001A0E02 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5368C72C986ECD001A0E02 /* FavoriteView.swift */; };
 		DF5368CB2C987238001A0E02 /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = DF5368CA2C987238001A0E02 /* KakaoMapsSDK-SPM */; };
 		DF7BA8EB2C93CAB900AFBF77 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BA8EA2C93CAB900AFBF77 /* SettingsView.swift */; };
+		DF8C87BF2CA7330200DCA37C /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DF8C87BE2CA7330100DCA37C /* cat.jpeg */; };
 		DF96422C2C8E14FD003C80E9 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96422B2C8E14FD003C80E9 /* SocialLoginButton.swift */; };
 		DFF2D28F2C8EB20D001A1B9A /* RandomNonceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF2D28E2C8EB20D001A1B9A /* RandomNonceString.swift */; };
 		DFF2D2912C8EB21B001A1B9A /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF2D2902C8EB21B001A1B9A /* SHA256.swift */; };
@@ -58,6 +59,7 @@
 		DF5368C52C986DEA001A0E02 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DF5368C72C986ECD001A0E02 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		DF7BA8EA2C93CAB900AFBF77 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DF8C87BE2CA7330100DCA37C /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpeg; sourceTree = "<group>"; };
 		DF96422B2C8E14FD003C80E9 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		DFF2D28C2C8EADC2001A1B9A /* Banchango.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banchango.entitlements; sourceTree = "<group>"; };
 		DFF2D28E2C8EB20D001A1B9A /* RandomNonceString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNonceString.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				DF3348F32C8DC036003A13A0 /* Assets.xcassets */,
+				DF8C87BE2CA7330100DCA37C /* cat.jpeg */,
 				DF3349562C8DE0DD003A13A0 /* Colors.xcassets */,
 			);
 			path = Resource;
@@ -272,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF8C87BF2CA7330200DCA37C /* cat.jpeg in Resources */,
 				DF334A372C8DF0C3003A13A0 /* Colors.xcassets in Resources */,
 				DF334A332C8DEE55003A13A0 /* Preview Assets.xcassets in Resources */,
 				DF334A312C8DEE30003A13A0 /* Assets.xcassets in Resources */,

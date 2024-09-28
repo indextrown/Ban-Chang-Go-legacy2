@@ -41,9 +41,11 @@ struct HomeView: View {
                         }
                     }
                 }
+                .edgesIgnoringSafeArea(.top) // 맵이 화면 전체를 채우도록 설정
             }
             
             VStack {
+                
                 HStack(spacing: 10) {
                     TextField("검색어를 입력하시오", text: $searchText)
                         .padding()
@@ -114,10 +116,55 @@ struct HomeView: View {
     HomeView()
 }
 
+
+struct HalfModalView2: View {
+    var place: Place
+    
+    var body: some View {
+        VStack {
+            ZStack {
+                //MapView() // Optional: Add a MapView if you want the map to be displayed in the background
+                CircleImage() // Add your CircleImage here
+                    .frame(width: 150, height: 150)
+                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 10)
+                    .offset(y: -150) // Adjust the y-offset to position it above the other elements
+            }
+            
+            VStack(alignment: .leading) {
+                Text(place.name)
+                    .font(.title)
+                    .padding(.top, 20)
+                Text("About \(place.name)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Divider()
+                Text("Descriptive text goes here.")
+                    .font(.body)
+                    .padding(.top, 10)
+            }
+            .padding()
+            
+            Spacer()
+        }
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(radius: 10)
+    }
+}
+
 struct HalfModalView: View {
     var place: Place
     
     var body: some View {
+        ZStack {
+            CircleImage() // Add your CircleImage here
+                .frame(width: 150, height: 150)
+                .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                .shadow(radius: 10)
+                .offset(y: -150) // Adjust the y-offset to position it above the other elements
+        }
+        
         VStack {
             Text("장소 이름: \(place.name)")
                 .font(.headline)
@@ -132,7 +179,12 @@ struct HalfModalView: View {
     }
 }
 
-
+struct CircleImage: View {
+    var body: some View {
+        Image("Cat")
+            .clipShape(Circle())
+    }
+}
 
 
 
