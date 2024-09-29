@@ -14,9 +14,10 @@ import CoreLocation
 struct HomeView: View {
     @StateObject private var locationManager = LocationManager()     // 위치 업데이트 관리할
     @State private var searchText: String = ""                       // 사용자가 입력할 검색어를 저장하는 상태 변수
-    @State private var isShowMapView: Bool = true                            // 지도를 보여줄지 여부를 제어하는 상태 변수
+    @State private var isShowMapView: Bool = true                    // 지도를 보여줄지 여부를 제어하는 상태 변수
     @State private var selectedPlace: Place?                         // 사용자가 선택할 장소를 저장하는 상태 변수
-    // @State private var isMapInitialized: Bool = false
+    @State private var mapCenter: String = ""                        // 지도 중심 좌표를 저장하는 상태 변수
+    //@State private var isMapInitialized: Bool = false
     
     var body: some View {
         ZStack {
@@ -38,6 +39,7 @@ struct HomeView: View {
                     }
                 }
                 .edgesIgnoringSafeArea(.top)                            // 맵이 화면 전체를 채우도록 설정
+                
 //                .onChange(of: locationManager.region.center) { _ in
 //                    // 사용자가 지도를 이동 중인 경우를 확인
 //                    isUserInteractingWithMap = true
@@ -76,7 +78,7 @@ struct HomeView: View {
                 // 내 위치로 이동하는 버튼 추가
                 Button(action: {
                     locationManager.updateRegionToCurrentLocation()
-                    // isMapInitialized = true // 지도가 수동으로 초기화
+                    //isMapInitialized = true // 지도가 수동으로 초기화
                 }) {
                     Text("내 위치로 이동")
                         .foregroundColor(.white)
@@ -138,7 +140,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var currentLocation: CLLocation? {   // 사용자의 현재 위치
         didSet {    // currentLocation이 변경될 때마다 자동으로 호출됨
             if let location = currentLocation {
-                print("현재 좌표: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+                // print("현재 좌표: \(location.coordinate.latitude), \(location.coordinate.longitude)")
                 
                 
                 DispatchQueue.main.async {
@@ -163,8 +165,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     // 사용자 상호작용 플래그 추가
-   // @Published var isUserInitiatedUpdate: Bool = false
-    @State private var isMapInitialized: Bool = false
+    // @Published var isUserInitiatedUpdate: Bool = false
+    var isMapInitialized = false // 최초로 카메라 이동을 제어하기 위한 변수 추가
     
     // 위치가 업데이트될 때마다 호출되는 함수
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -176,21 +178,20 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             self.currentLocation = location
             
             // 사용자가 버튼을 누를 때만 region을 업데이트
-            if !self.isMapInitialized {
+            
+            // 지도에서 보여줄 영역을 설정(사용자의 현재 위치를 중심으로)
+//            self.region = MKCoordinateRegion(
+//                center: location.coordinate,
+//                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+//            )
+            if !self.isMapInitialized { // 초기화되지 않았을 때만 업데이트
+                self.currentLocation = location
                 self.region = MKCoordinateRegion(
                     center: location.coordinate,
                     span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
                 )
-                self.isMapInitialized = true // 업데이트 후 다시 false로 설정
+                self.isMapInitialized = true // 최초로 카메라 이동 후 상태를 true로 설
             }
-            // MARK: - !!!!!!!!!
-            
-            
-            // 지도에서 보여줄 영역을 설정(사용자의 현재 위치를 중심으로)
-            self.region = MKCoordinateRegion(
-                center: location.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            )
         }
     }
     
