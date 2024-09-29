@@ -12,7 +12,7 @@ import GoogleSignIn
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
-import KakaoMapsSDK
+
 
 
 
@@ -29,8 +29,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             // Kakao SDK 초기화
             KakaoSDK.initSDK(appKey: kakaoAppKey)
             
-            // Kakao Map 초기화'
-            SDKInitializer.InitSDK(appKey: kakaoAppKey)
         } else {
             print("Kakao App Key is missing or invalid")
         }

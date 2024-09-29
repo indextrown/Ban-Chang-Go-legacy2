@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DF095B8E2C8ECC7A00055F5D /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DF095B8D2C8ECC7A00055F5D /* KakaoSDKAuth */; };
 		DF095B902C8ECC7A00055F5D /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = DF095B8F2C8ECC7A00055F5D /* KakaoSDKUser */; };
-		DF095B952C8EDAFA00055F5D /* SceleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF095B942C8EDAFA00055F5D /* SceleDelegate.swift */; };
+		DF095B952C8EDAFA00055F5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF095B942C8EDAFA00055F5D /* SceneDelegate.swift */; };
 		DF24088A2C9071AF0065F1F0 /* NicknameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2408892C9071AF0065F1F0 /* NicknameInputView.swift */; };
 		DF27F4582C90760E001F6F54 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF27F4572C90760E001F6F54 /* HomeView.swift */; };
 		DF3348F02C8DC035003A13A0 /* BanchangoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3348EF2C8DC035003A13A0 /* BanchangoApp.swift */; };
@@ -27,6 +27,7 @@
 		DF334A372C8DF0C3003A13A0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF3349562C8DE0DD003A13A0 /* Colors.xcassets */; };
 		DF334A3A2C8DFB52003A13A0 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = DF334A392C8DFB52003A13A0 /* GoogleSignIn */; };
 		DF334A3D2C8DFC7A003A13A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF334A3C2C8DFC7A003A13A0 /* User.swift */; };
+		DF454D0B2CA8897100474701 /* PharmacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF454D0A2CA8897100474701 /* PharmacyManager.swift */; };
 		DF5368C62C986DEA001A0E02 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5368C52C986DEA001A0E02 /* SearchView.swift */; };
 		DF5368C82C986ECD001A0E02 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5368C72C986ECD001A0E02 /* FavoriteView.swift */; };
 		DF5368CB2C987238001A0E02 /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = DF5368CA2C987238001A0E02 /* KakaoMapsSDK-SPM */; };
@@ -39,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		DF095B932C8ED94700055F5D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		DF095B942C8EDAFA00055F5D /* SceleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceleDelegate.swift; sourceTree = "<group>"; };
+		DF095B942C8EDAFA00055F5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DF2408892C9071AF0065F1F0 /* NicknameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameInputView.swift; sourceTree = "<group>"; };
 		DF27F4572C90760E001F6F54 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DF3348EC2C8DC035003A13A0 /* Banchango.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banchango.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +57,7 @@
 		DF33495E2C8DE626003A13A0 /* LoginButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonStyle.swift; sourceTree = "<group>"; };
 		DF334A2F2C8DEE0A003A13A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF334A3C2C8DFC7A003A13A0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DF454D0A2CA8897100474701 /* PharmacyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyManager.swift; sourceTree = "<group>"; };
 		DF5368C52C986DEA001A0E02 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DF5368C72C986ECD001A0E02 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		DF7BA8EA2C93CAB900AFBF77 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -107,8 +109,9 @@
 				DF3349142C8DD957003A13A0 /* Info.plist */,
 				DF3348EF2C8DC035003A13A0 /* BanchangoApp.swift */,
 				DF3349122C8DC29F003A13A0 /* AppDelegate.swift */,
-				DF095B942C8EDAFA00055F5D /* SceleDelegate.swift */,
+				DF095B942C8EDAFA00055F5D /* SceneDelegate.swift */,
 				DF095B932C8ED94700055F5D /* Config.xcconfig */,
+				DF454D092CA8893300474701 /* Api */,
 				DF334A3B2C8DFC6B003A13A0 /* Model */,
 				DF334A2F2C8DEE0A003A13A0 /* GoogleService-Info.plist */,
 				DF3348FE2C8DC0B6003A13A0 /* View */,
@@ -192,6 +195,14 @@
 				DF334A3C2C8DFC7A003A13A0 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DF454D092CA8893300474701 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				DF454D0A2CA8897100474701 /* PharmacyManager.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		DFF2D28D2C8EB1FD001A1B9A /* Utill */ = {
@@ -297,6 +308,7 @@
 				DF27F4582C90760E001F6F54 /* HomeView.swift in Sources */,
 				DF3349592C8DE111003A13A0 /* Color+Extension.swift in Sources */,
 				DF3349032C8DC10E003A13A0 /* AuthenticationViewModel.swift in Sources */,
+				DF454D0B2CA8897100474701 /* PharmacyManager.swift in Sources */,
 				DF96422C2C8E14FD003C80E9 /* SocialLoginButton.swift in Sources */,
 				DF3348F22C8DC035003A13A0 /* AuthenticatedView.swift in Sources */,
 				DF7BA8EB2C93CAB900AFBF77 /* SettingsView.swift in Sources */,
@@ -306,7 +318,7 @@
 				DF5368C62C986DEA001A0E02 /* SearchView.swift in Sources */,
 				DFF2D28F2C8EB20D001A1B9A /* RandomNonceString.swift in Sources */,
 				DF33491A2C8DDE68003A13A0 /* LoginView.swift in Sources */,
-				DF095B952C8EDAFA00055F5D /* SceleDelegate.swift in Sources */,
+				DF095B952C8EDAFA00055F5D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

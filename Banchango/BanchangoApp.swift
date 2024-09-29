@@ -12,11 +12,10 @@ struct BanchangoApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
 
-    
     var body: some Scene {
         WindowGroup {
             AuthenticatedView(authViewModel: .init())
-            
+                
         }
     }
 }

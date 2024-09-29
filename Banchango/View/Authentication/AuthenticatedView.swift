@@ -41,7 +41,7 @@ struct AuthenticatedView: View {
                TabView {
                    HomeView() // draw 변수를 Binding으로 전달
                        .onDisappear {
-                           print("hello")
+                           // print("hello")
                        }
                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                        //.frame(maxWidth: 20, maxHeight: 20)
