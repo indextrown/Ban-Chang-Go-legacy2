@@ -78,55 +78,6 @@ class PharmacyXMLParser: NSObject, XMLParserDelegate {
         guard !trimmedString.isEmpty else { return }
         
         // 디버깅: 현재 요소와 값을 출력
-//        print("Element: \(currentElement), Value: \(trimmedString)")
-//        switch currentElement {
-//        case "dutyName":
-//            currentPharmacy.name += trimmedString
-//            print("dutyName matched, name: \(currentPharmacy.name)")
-//        case "dutyAddr":
-//            currentPharmacy.address += trimmedString
-//            print("dutyAddr matched, address: \(currentPharmacy.address)")
-//        case "dutyTime1s":
-//            currentPharmacy.operatingHours["mon_s"] = trimmedString
-//            print("dutyTime1s matched, mon_s: \(currentPharmacy.operatingHours["mon_s"] ?? "")")
-//        case "dutyTime1c":
-//            currentPharmacy.operatingHours["mon_e"] = trimmedString
-//            print("dutyTime1c matched, mon_e: \(currentPharmacy.operatingHours["mon_e"] ?? "")")
-//        case "dutyTime2s":
-//            currentPharmacy.operatingHours["tue_s"] = trimmedString
-//            print("dutyTime2s matched, tue_s: \(currentPharmacy.operatingHours["tue_s"] ?? "")")
-//        case "dutyTime2c":
-//            currentPharmacy.operatingHours["tue_e"] = trimmedString
-//            print("dutyTime2c matched, tue_e: \(currentPharmacy.operatingHours["tue_e"] ?? "")")
-//        case "dutyTime3s":
-//            currentPharmacy.operatingHours["wed_s"] = trimmedString
-//            print("dutyTime3s matched, wed_s: \(currentPharmacy.operatingHours["wed_s"] ?? "")")
-//        case "dutyTime3c":
-//            currentPharmacy.operatingHours["wed_e"] = trimmedString
-//            print("dutyTime3c matched, wed_e: \(currentPharmacy.operatingHours["wed_e"] ?? "")")
-//        case "dutyTime4s":
-//            currentPharmacy.operatingHours["thu_s"] = trimmedString
-//            print("dutyTime4s matched, thu_s: \(currentPharmacy.operatingHours["thu_s"] ?? "")")
-//        case "dutyTime4c":
-//            currentPharmacy.operatingHours["thu_e"] = trimmedString
-//            print("dutyTime4c matched, thu_e: \(currentPharmacy.operatingHours["thu_e"] ?? "")")
-//        case "dutyTime5s":
-//            currentPharmacy.operatingHours["fri_s"] = trimmedString
-//            print("dutyTime5s matched, fri_s: \(currentPharmacy.operatingHours["fri_s"] ?? "")")
-//        case "dutyTime5c":
-//            currentPharmacy.operatingHours["fri_e"] = trimmedString
-//            print("dutyTime5c matched, fri_e: \(currentPharmacy.operatingHours["fri_e"] ?? "")")
-//        case "dutyTime6s":
-//            currentPharmacy.operatingHours["sat_s"] = trimmedString
-//            print("dutyTime6s matched, sat_s: \(currentPharmacy.operatingHours["sat_s"] ?? "")")
-//        case "dutyTime6c":
-//            currentPharmacy.operatingHours["sat_e"] = trimmedString
-//            print("dutyTime6c matched, sat_e: \(currentPharmacy.operatingHours["sat_e"] ?? "")")
-//        default:
-//            print("No match found for element: \(currentElement)")
-//        }
-
-        
         switch currentElement {
         case "dutyName":
             currentPharmacy.name += trimmedString
@@ -180,8 +131,8 @@ class PharmacyXMLParser: NSObject, XMLParserDelegate {
     }
 }
 
-// 싱글톤 패턴을 적용한 약국 정보 관리 서비스
 
+// 싱글톤 패턴을 적용한 약국 정보 관리 서비스
 class PharmacyManager {
     // 싱글톤 인스턴스
     static let shared = PharmacyManager()

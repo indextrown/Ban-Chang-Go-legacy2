@@ -34,6 +34,7 @@
 		DF7BA8EB2C93CAB900AFBF77 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BA8EA2C93CAB900AFBF77 /* SettingsView.swift */; };
 		DF8C87BF2CA7330200DCA37C /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DF8C87BE2CA7330100DCA37C /* cat.jpeg */; };
 		DF96422C2C8E14FD003C80E9 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96422B2C8E14FD003C80E9 /* SocialLoginButton.swift */; };
+		DFA620462CAA4D8600DA7ACA /* PharmacyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA620452CAA4D8600DA7ACA /* PharmacyService.swift */; };
 		DFF2D28F2C8EB20D001A1B9A /* RandomNonceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF2D28E2C8EB20D001A1B9A /* RandomNonceString.swift */; };
 		DFF2D2912C8EB21B001A1B9A /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF2D2902C8EB21B001A1B9A /* SHA256.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		DF7BA8EA2C93CAB900AFBF77 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DF8C87BE2CA7330100DCA37C /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpeg; sourceTree = "<group>"; };
 		DF96422B2C8E14FD003C80E9 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
+		DFA620452CAA4D8600DA7ACA /* PharmacyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyService.swift; sourceTree = "<group>"; };
 		DFF2D28C2C8EADC2001A1B9A /* Banchango.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banchango.entitlements; sourceTree = "<group>"; };
 		DFF2D28E2C8EB20D001A1B9A /* RandomNonceString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNonceString.swift; sourceTree = "<group>"; };
 		DFF2D2902C8EB21B001A1B9A /* SHA256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA256.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				DF454D0A2CA8897100474701 /* PharmacyManager.swift */,
+				DFA620452CAA4D8600DA7ACA /* PharmacyService.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				DF7BA8EB2C93CAB900AFBF77 /* SettingsView.swift in Sources */,
 				DF33495F2C8DE626003A13A0 /* LoginButtonStyle.swift in Sources */,
 				DF3348F02C8DC035003A13A0 /* BanchangoApp.swift in Sources */,
+				DFA620462CAA4D8600DA7ACA /* PharmacyService.swift in Sources */,
 				DFF2D2912C8EB21B001A1B9A /* SHA256.swift in Sources */,
 				DF5368C62C986DEA001A0E02 /* SearchView.swift in Sources */,
 				DFF2D28F2C8EB20D001A1B9A /* RandomNonceString.swift in Sources */,
