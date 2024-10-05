@@ -7,20 +7,14 @@
 
 import UIKit
 import FirebaseCore
-import FirebaseAuth
 import GoogleSignIn
 import KakaoSDKCommon
 import KakaoSDKAuth
-import KakaoSDKUser
-
-
-
+//import KakaoSDKUser
+//import FirebaseAuth
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    
-    
-    //var authenticationViewModel: AuthenticationViewModel?
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
         print("App key: \(kakaoAppKey)")
@@ -32,7 +26,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         } else {
             print("Kakao App Key is missing or invalid")
         }
-
 
         // firebase 초기화
         FirebaseApp.configure()

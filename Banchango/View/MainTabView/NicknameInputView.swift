@@ -30,7 +30,10 @@ struct NicknameInputView: View {
         
     }
     func saveNickname() {
-            guard let userId = authViewModel.userId else { return }
+        guard let userId = authViewModel.userId else {
+            print("에러")
+            return
+        }
             authViewModel.saveUIDAndNicknameToFirestore(uid: userId, nickname: nickname)
         }
 }

@@ -28,6 +28,7 @@ import SwiftUI
 
 struct AuthenticatedView: View {
     @ObservedObject var authViewModel: AuthenticationViewModel
+    @State private var selectedTab: Int = 1 // 약국지도 탭을 기본으로 선택
     
     // 지도 그리기 상태 관리 변수
     // @State private var draw: Bool = true
@@ -38,31 +39,30 @@ struct AuthenticatedView: View {
            if authViewModel.isLoading {
                LoadingView() // 로딩 화면 표시
            } else if authViewModel.isLoggedIn{
-               TabView {
-                   HomeView() // draw 변수를 Binding으로 전달
+               TabView (selection: $selectedTab) {
+                   SearchView() // draw 변수를 Binding으로 전달
                        .onDisappear {
                            // print("hello")
                        }
                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                        //.frame(maxWidth: 20, maxHeight: 20)
                        .tabItem {
-                           Label("홈", systemImage: "house")
+                           Label("반창뉴스", systemImage: "house")
                        }
-                   
-                   SearchView()
+                       .tag(0)
+
+                   HomeView()
                        .tabItem {
-                           Label("검색", systemImage: "magnifyingglass")
+                           Label("약국지도", systemImage: "magnifyingglass")
                        }
+                       .tag(1)
                    
-                   FavoriteView()
-                       .tabItem {
-                           Label("즐겨찾기", systemImage: "heart.fill")
-                       }
                    
                    SettingsView(authViewModel: authViewModel)
                        .tabItem {
                            Label("설정", systemImage: "gearshape")
                        }
+                       .tag(2)
                }
            } else if authViewModel.isNicknameRequired {
                NicknameInputView(authViewModel: authViewModel) // 닉네임 입력 화면

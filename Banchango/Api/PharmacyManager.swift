@@ -51,6 +51,8 @@ func getmethod() {
 
 import Foundation
 
+// MARK: - 특정 약국 영업시간 확인
+
 // 약국 정보 구조체 정의
 struct PharmacyInfo {
     var name: String

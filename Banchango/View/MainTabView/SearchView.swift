@@ -5,31 +5,106 @@
 //  Created by 김동현 on 9/16/24.
 //
 
-import SwiftUI
-import MapKit
 
-// Identifiable을 따르는 구조체
-struct UserLocation: Identifiable {
-    let id = UUID()
-    let coordinate: CLLocationCoordinate2D
-}
+
+import SwiftUI
 
 struct SearchView: View {
-//    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(
-//        latitude: 37.5666791,
-//        longitude: 126.9782914),
-//        span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-    
-    @StateObject private var locationManager = LocationManagerBeta()
     var body: some View {
-        Text("Favorite View")
-        // Map(coordinateRegion: $locationManager.region)
-//        Map(coordinateRegion: $locationManager.region, annotationItems: [locationManager.userLocation].compactMap { $0 }) { location in
-//            MapMarker(coordinate: location.coordinate, tint: .blue) // 현재 위치에 파란색 마커 추가
-//        }
-//            .ignoresSafeArea()
+        ZStack {
+            // 배경색 설정 (흰색에 가까운 밝은 회색)
+            Color.gray.opacity(0.05)
+                .edgesIgnoringSafeArea(.all) // 전체 화면에 적용
+            
+            VStack {
+//                Spacer()
+//                    .frame(height: 20)
+                Text("테스트")
+                    //.frame(maxWidth: .infinity) // ScrollView 너비를 최대한으로 확장
+                    //.background(.white)
+                    
+                //VStack(spacing: 10)
+                ScrollView {
+                    
+                    // 상단에서 20 여백
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    VStack(spacing: 20) {
+                        
+                        HStack {
+                            Text("환자")
+                            Spacer()
+                        }
+                        
+                        // 열 통계
+                        HStack {
+                            VStack() {
+                                Text("전국")
+                                    .font(.system(size: 14))
+                                //.foregroundColor(.gray)
+                                Text("60,035명")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.red)
+                                Text("감기 환자")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.black)
+                            }
+                            
+                            // 구분선
+                            Spacer()
+                            Rectangle()
+                                .fill(Color.gray)
+                                .frame(width: 1, height: 60) // 구분선 두께와 높이 설정
+                                .padding(.horizontal, 10)
+                            Spacer()
+                            
+                            VStack {
+                                Text("38°C")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.red)
+                                Text("평균 체온")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.black)
+                            }
+                            //.background(.gray)
+                        }
+                        .padding(.horizontal)
+                        .padding()
+                        .background(.white)
+                        .cornerRadius(10)
+                        
+                        Spacer()
+                        
+                        //
+                        HStack {
+                            Text("오늘의 소식")
+                            Spacer()
+                        }
+                        
+                        
+                        VStack(spacing: 10) { // 아이템 간 간격을 위한 VStack
+                            Text("123")
+                            Text("123")
+                            Text("123")
+                            Text("123")
+                            Text("123")
+                            Text("123")
+                            Text("000")
+                            
+                        }
+                        .frame(maxWidth: .infinity) // ScrollView 너비를 최대한으로 확장
+                        .background(.white)
+                        .padding(.bottom, 10)
+                        .cornerRadius(10)
+                    }
+                }
+                
+                // 건들지말기
+                .padding(.horizontal, 30)
+            }
+        }
     }
-        
 }
 
 #Preview {
@@ -38,75 +113,62 @@ struct SearchView: View {
 
 
 
-
-
-import CoreLocation
-
-class LocationManagerBeta: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private var locationManager = CLLocationManager()
-    
-    @Published var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(
-            latitude: 37.5666791, // 기본 좌표 (서울시청)
-            longitude: 126.9782914),
-        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-    )
-    
-    // 사용자 위치를 저장할 Identifiable 객체
-    @Published var userLocation: UserLocation?
-
-    override init() {
-        super.init()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        
-        // Identifiable 객체로 변환하여 저장
-        userLocation = UserLocation(coordinate: location.coordinate)
-        
-        // 사용자의 현재 위치로 지도를 업데이트
-        region = MKCoordinateRegion(
-            center: location.coordinate,
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        )
-    }
-}
-
-
-
-
-//import CoreLocation
-
 //
-//class LocationManagerBeta: NSObject, ObservableObject, CLLocationManagerDelegate {
-//    private var locationManager = CLLocationManager()
-//    @Published var currentLocation: CLLocation? // 사용자의 현재 위치 저장
+//import SwiftUI
 //
-//    @Published var region = MKCoordinateRegion(
-//        center: CLLocationCoordinate2D(
-//                    latitude: 37.5666791, // 기본 좌표 (서울시청)
-//                    longitude: 126.9782914),
-//                span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-//    )
-//
-//    override init() {
-//        super.init()
-//        locationManager.delegate = self
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startUpdatingLocation()
+//struct SearchView: View {
+//    var body: some View {
+//        
+//        VStack(spacing: 20) {
+//            // 상단 프로필과 알림
+//            HStack {
+//                Image(systemName: "person.circle")
+//                    .font(.largeTitle)
+//                Text("프로필 등록하기")
+//                Spacer()
+//                Image(systemName: "bell.fill")
+//                    .overlay(
+//                        Text("N")
+//                            .font(.caption)
+//                            .foregroundColor(.white)
+//                            .padding(4)
+//                            .background(Color.red)
+//                            .clipShape(Circle())
+//                            .offset(x: 10, y: -10)
+//                    )
+//            }
+//            
+//            // 열 통계
+//            HStack {
+//                VStack {
+//                    Text("전국")
+//                        .font(.system(size: 14))
+//                        .foregroundColor(.gray)
+//                    Text("60,035명")
+//                        .font(.system(size: 18))
+//                        .foregroundColor(.red)
+//                    Text("열나는 아이")
+//                        .font(.system(size: 14))
+//                        .foregroundColor(.black)
+//                }
+//                
+//                Spacer()
+//                
+//                VStack {
+//                    Text("38°C")
+//                        .font(.system(size: 18))
+//                        .foregroundColor(.red)
+//                    Text("평균 체온")
+//                        .font(.system(size: 14))
+//                        .foregroundColor(.black)
+//                }
+//            }
+//            .padding(.horizontal)
+//            .padding()
+//        }
 //    }
+//}
 //
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let location = locations.first else { return }
-//        currentLocation = location  // 현재 위치 저장
-//        region = MKCoordinateRegion(
-//            center: location.coordinate,
-//            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-//        )
-//
-//    }
+//#Preview {
+//    SearchView()
 //}

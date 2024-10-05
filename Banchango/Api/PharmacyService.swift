@@ -5,6 +5,7 @@
 //  Created by 김동현 on 9/30/24.
 //
 
+// MARK: - 주변 반경 약국 찾기
 import Foundation
 import CoreLocation
 
@@ -107,3 +108,96 @@ class PharmacyService {
         return location1.distance(from: location2)
     }
 }
+
+
+//
+//
+//
+//// 사용 예시
+//func test() {
+//   
+//    Task {
+//        // 현재위치로 가정(추후에 위치변경되면 동적으로 위치지정)
+//        let currentLatitude = 35.13753139104897      // 위도
+//        let currentLongitude = 129.10161339412642    // 경도
+//        let currentLocation = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
+//        
+//        let result = await PharmacyService.shared.getNearbyPharmacies(latitude: currentLatitude, longitude: currentLongitude)
+//        switch result {
+//        case .success(let pharmacies):
+//            
+//            // 거리 정보를 포함한 튜플 배열을 생성합니다.
+//            let pharmaciesWithDistances = pharmacies.map { pharmacy in
+//                let pharmacyLocation = CLLocation(latitude: pharmacy.latitude, longitude: pharmacy.longitude)
+//                let distance = PharmacyService.shared.distance(from: currentLocation, to: pharmacyLocation)
+//                return (pharmacy: pharmacy, distance: distance)
+//            }
+//            
+//            // 거리를 기준으로 오름차순 정렬합니다.
+//            let sortedPharmacies = pharmaciesWithDistances.sorted { $0.distance < $1.distance }
+//            
+//            // 정렬된 약국을 출력합니다.
+//            for item in sortedPharmacies {
+//                let pharmacy = item.pharmacy
+//                let infoArray = getPharmacyInfo(
+//                    city: pharmacy.city[0],
+//                    district: pharmacy.city[1],
+//                    name: pharmacy.name,
+//                    latitude: pharmacy.latitude,        // 위도
+//                    longitude: pharmacy.longitude)      // 경도
+//                
+//                for info in infoArray {
+//                    print(info)
+//                }
+//                
+//                //print(infoArray)
+//                print()
+//            }
+//            
+//        case .failure(let error):
+//            switch error {
+//            case .invalidURL:
+//                print("Invalid URL")
+//            case .requestFailed:
+//                print("Request failed")
+//            case .noData:
+//                print("No data received")
+//            case .decodingError:
+//                print("Failed to decode JSON")
+//            }
+//        }
+//    }
+//}
+
+
+
+
+//
+//
+//// 이름으로 운영정보 찾기
+//func getPharmacyInfo(city: String, district: String, name: String, latitude: Double, longitude: Double) -> [String] {
+//    let pharmacyInfoList = PharmacyManager.shared.getPharmacyInfo(
+//        q0: city,
+//        q1: district,
+//        pageNo: "1",
+//        numOfRows: "1",
+//        qn: name)
+//    
+//    // 결과를 저장할 배열
+//    var results: [String] = []
+//
+//    // 결과 배열에 추가
+//    if !pharmacyInfoList.isEmpty {
+//        results.append("이름: \(pharmacyInfoList[0].name)")
+//        results.append("주소: \(pharmacyInfoList[0].address)")
+//        results.append("위도: \(latitude)")
+//        results.append("경도: \(longitude)")
+//        
+//        for day in dayOrder {
+//            if let startTime = pharmacyInfoList[0].operatingHours["\(day)_s"], let endTime = pharmacyInfoList[0].operatingHours["\(day)_e"] {
+//                results.append("\(day) 시작: \(startTime) 종료: \(endTime)")
+//            }
+//        }
+//    }
+//    return results
+//}
