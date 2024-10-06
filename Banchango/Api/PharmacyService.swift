@@ -5,7 +5,8 @@
 //  Created by 김동현 on 9/30/24.
 //
 
-// MARK: - 주변 반경 약국 찾기
+// MARK: - 주변 반경 약국 찾기 (카카오)
+// https://developers.kakao.com/docs/latest/ko/local/dev-guide#search-by-keyword
 import Foundation
 import CoreLocation
 

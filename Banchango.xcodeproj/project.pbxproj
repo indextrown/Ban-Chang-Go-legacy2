@@ -10,6 +10,7 @@
 		DF095B8E2C8ECC7A00055F5D /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DF095B8D2C8ECC7A00055F5D /* KakaoSDKAuth */; };
 		DF095B902C8ECC7A00055F5D /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = DF095B8F2C8ECC7A00055F5D /* KakaoSDKUser */; };
 		DF095B952C8EDAFA00055F5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF095B942C8EDAFA00055F5D /* SceneDelegate.swift */; };
+		DF133DE62CB2679A00D112DA /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF133DE52CB2679A00D112DA /* test.swift */; };
 		DF24088A2C9071AF0065F1F0 /* NicknameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2408892C9071AF0065F1F0 /* NicknameInputView.swift */; };
 		DF27F4582C90760E001F6F54 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF27F4572C90760E001F6F54 /* HomeView.swift */; };
 		DF3348F02C8DC035003A13A0 /* BanchangoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3348EF2C8DC035003A13A0 /* BanchangoApp.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		DF095B932C8ED94700055F5D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		DF095B942C8EDAFA00055F5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DF133DE52CB2679A00D112DA /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		DF2408892C9071AF0065F1F0 /* NicknameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameInputView.swift; sourceTree = "<group>"; };
 		DF27F4572C90760E001F6F54 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DF3348EC2C8DC035003A13A0 /* Banchango.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banchango.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF133DE42CB2679100D112DA /* temp */ = {
+			isa = PBXGroup;
+			children = (
+				DF133DE52CB2679A00D112DA /* test.swift */,
+			);
+			path = temp;
+			sourceTree = "<group>";
+		};
 		DF3348E32C8DC035003A13A0 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +120,7 @@
 				DFF2D28D2C8EB1FD001A1B9A /* Utill */,
 				DF3349142C8DD957003A13A0 /* Info.plist */,
 				DF3348EF2C8DC035003A13A0 /* BanchangoApp.swift */,
+				DF133DE42CB2679100D112DA /* temp */,
 				DF3349122C8DC29F003A13A0 /* AppDelegate.swift */,
 				DF095B942C8EDAFA00055F5D /* SceneDelegate.swift */,
 				DF095B932C8ED94700055F5D /* Config.xcconfig */,
@@ -317,6 +328,7 @@
 				DF7BA8EB2C93CAB900AFBF77 /* SettingsView.swift in Sources */,
 				DF33495F2C8DE626003A13A0 /* LoginButtonStyle.swift in Sources */,
 				DF3348F02C8DC035003A13A0 /* BanchangoApp.swift in Sources */,
+				DF133DE62CB2679A00D112DA /* test.swift in Sources */,
 				DFA620462CAA4D8600DA7ACA /* PharmacyService.swift in Sources */,
 				DFF2D2912C8EB21B001A1B9A /* SHA256.swift in Sources */,
 				DF5368C62C986DEA001A0E02 /* SearchView.swift in Sources */,

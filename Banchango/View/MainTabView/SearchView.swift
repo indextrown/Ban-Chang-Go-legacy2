@@ -97,6 +97,7 @@ struct SearchView: View {
                         .background(.white)
                         .padding(.bottom, 10)
                         .cornerRadius(10)
+                        
                     }
                 }
                 

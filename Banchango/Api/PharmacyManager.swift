@@ -5,50 +5,6 @@
 //  Created by 김동현 on 9/29/24.
 //
 
-//import Foundation
-
-//import SwiftUI
-
-/*
-func getmethod() {
-    
-    // URL 구조체 만들기
-    guard let url = URL(string: "http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=vYvbOXShpiN13vBxmVUlC0kkxVrD%2B9V3EF7O41ExML40kZenS8KX1KYHEJcXpXhmtUm3WVdxnUWsGmDMjMQRBw%3D%3D&QT=1&QN=일층약국&ORD=NAME&pageNo=1&numOfRows=1&Q0=부산&Q1=남구") else {
-        print("Error: cannot create URL")
-        return
-    }
-    
-    // URL 요청 생성
-    var request = URLRequest(url: url)
-    request.httpMethod = "GET"
-    
-    URLSession.shared.dataTask(with: request) { data, response, error in
-        // 에러가 없어야 넘어감
-        guard error == nil else {
-            print("Error: calling GET")
-            return
-        }
-        
-        // 옵셔널 바인딩
-        guard let safeData = data else {
-            print("Error: Did not receive data")
-            return
-        }
-        
-        // Http 200번대 정상코드인 경우만 다음 코드로 넘어감
-        guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
-            print("Error: Http request failed")
-            return
-        }
-        
-        // 원하는 모델이 있다면, JsonDecoder로 decode 코드로 구현
-        print(String(decoding: safeData, as: UTF8.self))
-    }.resume()
-}
-*/
-
-
-
 import Foundation
 
 // MARK: - 특정 약국 영업시간 확인
@@ -57,13 +13,14 @@ import Foundation
 struct PharmacyInfo {
     var name: String
     var address: String
+    var phoneNumber: String // 전화번호 필드 추가
     var operatingHours: [String: String]
 }
 
 // XML 파싱을 위한 델리게이트 클래스
 class PharmacyXMLParser: NSObject, XMLParserDelegate {
     private var currentElement = ""
-    private var currentPharmacy = PharmacyInfo(name: "", address: "", operatingHours: [:])
+    private var currentPharmacy = PharmacyInfo(name: "", address: "", phoneNumber: "", operatingHours: [:])
     private var pharmacies: [PharmacyInfo] = []
     
     // XML 시작 태그를 만났을 때 호출되는 메서드
@@ -85,6 +42,8 @@ class PharmacyXMLParser: NSObject, XMLParserDelegate {
             currentPharmacy.name += trimmedString
         case "dutyAddr":
             currentPharmacy.address += trimmedString
+        case "dutyTel1": // 전화번호 태그 처리
+            currentPharmacy.phoneNumber += trimmedString
         case "dutyTime1s":
             currentPharmacy.operatingHours["mon_s"] = trimmedString
         case "dutyTime1c":
@@ -123,7 +82,7 @@ class PharmacyXMLParser: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item" {
             pharmacies.append(currentPharmacy)
-            currentPharmacy = PharmacyInfo(name: "", address: "", operatingHours: [:])
+            currentPharmacy = PharmacyInfo(name: "", address: "", phoneNumber: "", operatingHours: [:])
         }
     }
     
@@ -158,6 +117,45 @@ class PharmacyManager {
      진료시간/요이
      
      */
+    
+    func getPharmacyInfo_async(q0: String, q1: String, pageNo: String, numOfRows: String, qn: String) async -> PharmacyInfo? {
+            let baseURL = "https://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire"
+            let serviceKey = "vYvbOXShpiN13vBxmVUlC0kkxVrD%2B9V3EF7O41ExML40kZenS8KX1KYHEJcXpXhmtUm3WVdxnUWsGmDMjMQRBw%3D%3D"
+            let qt = "1"
+            let ord = "NAME"
+
+            guard let encodedQn = qn.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                  let encodedQ0 = q0.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                  let encodedQ1 = q1.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+                print("Failed to encode URL parameters.")
+                return nil
+            }
+
+            let urlString = "\(baseURL)?serviceKey=\(serviceKey)&QT=\(qt)&QN=\(encodedQn)&ORD=\(ord)&pageNo=\(pageNo)&numOfRows=\(numOfRows)&Q0=\(encodedQ0)&Q1=\(encodedQ1)"
+
+            guard let url = URL(string: urlString) else {
+                print("Invalid URL")
+                return nil
+            }
+
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let parser = XMLParser(data: data)
+                let xmlParserDelegate = PharmacyXMLParser()
+                parser.delegate = xmlParserDelegate
+
+                if parser.parse(), let parsedPharmacy = xmlParserDelegate.getParsedPharmacies().first {
+                    return parsedPharmacy
+                } else {
+                    print("Failed to parse XML.")
+                    return nil
+                }
+            } catch {
+                print("Error: \(error.localizedDescription)")
+                return nil
+            }
+        }
+    
     func getPharmacyInfo(q0: String, q1: String, pageNo: String, numOfRows: String, qn: String) -> PharmacyInfo? {
         let baseURL = "https://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire"
         let serviceKey = "vYvbOXShpiN13vBxmVUlC0kkxVrD%2B9V3EF7O41ExML40kZenS8KX1KYHEJcXpXhmtUm3WVdxnUWsGmDMjMQRBw%3D%3D"
