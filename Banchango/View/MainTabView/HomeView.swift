@@ -221,7 +221,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
                                 
                                     let today = getDay(from: Date())
                                     let hours = operatingHours(for: today, operatingHours: pharmacyInfo.operatingHours)
-                                    //print("시간확인: \(hours)")
+                                    print("시간확인: \(hours)")
                                     self.pharmacies[index].isOpen = isOpenNow(startTime: hours.start, endTime: hours.end)
                                     
                                     print("디버깅완료: \(newPlace.name) \(self.pharmacies[index].isOpen)")
@@ -518,14 +518,41 @@ struct HalfModalView: View {
                 
             } else {
                 // 약국 정보가 없을 때
-                Text("약국 정보를 불러올 수 없습니다.")
-                Text("장소 이름: \(place.name)")
-                    .font(.headline)
+                HStack {
+                    Text(place.name)
+                        .fontWeight(.bold) // 볼드 설정
+                        .font(.system(size: 24))
+                    Spacer()
+                    
+                    Text("정보 미제공")
+                        .foregroundColor(.red)
+                }
+                
+                Spacer()
+                    .frame(height: 10)
+                
+                HStack {
+                    // 약국 정보가 있을 때 표시
+                    Text(place.address)
+                        .font(.system(size: 15))
+                    Spacer()
+                }
+                
+                Spacer()
+                    .frame(height: 5)
+                
+                HStack {
+                    // 약국 정보가 있을 때 표시
+                    Text(String(describing: place.phone))
+                        .font(.system(size: 15))
+                    Spacer()
+                }
+                
+                
+                /*
                 Text("위도: \(place.coordinate.latitude)")
                 Text("경도: \(place.coordinate.longitude)")
-                Text("주소: \(place.address)")
-                Text("번호: \(String(describing: place.phone))")
-//                Text("주소: \(place.roadAddress)")
+                 */
             }
             Spacer()
         }
@@ -690,4 +717,5 @@ func isOpenNow(startTime: String, endTime: String) -> Bool {
         return currentTime >= startDate && currentTime <= endDate
     }
 }
+
 
