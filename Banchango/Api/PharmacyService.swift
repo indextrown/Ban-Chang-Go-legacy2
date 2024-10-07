@@ -21,12 +21,17 @@ struct Pharmacy: Codable {
     let longitude: Double
     let address: String
     let city: [String] // 시, 군 정보를 배열로 변경합니다.
+    let roadAddress: String
+    let phone: String
+    
     
     enum CodingKeys: String, CodingKey {
         case name = "place_name"
         case latitude = "y"
         case longitude = "x"
         case address = "address_name"
+        case roadAddress = "road_address_name"
+        case phone = "phone"
     }
     
     init(from decoder: Decoder) throws {
@@ -48,6 +53,8 @@ struct Pharmacy: Codable {
         }
         
         address = try container.decode(String.self, forKey: .address)
+        roadAddress = try container.decode(String.self, forKey: .roadAddress)
+        phone = try container.decode(String.self, forKey: .phone)
         
         // 주소에서 시, 군 정보를 추출하여 배열에 저장합니다.
         let addressComponents = address.split(separator: " ")
@@ -109,6 +116,9 @@ class PharmacyService {
         return location1.distance(from: location2)
     }
 }
+
+
+
 
 
 //
