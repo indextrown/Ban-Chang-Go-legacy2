@@ -19,19 +19,18 @@ struct LoginView: View {
             VStack(spacing: 10) {
                 Spacer()
                 
-                Text("환영합니다")
-                    .font(.system(size: 26, weight: .bold))
-                    .foregroundColor(.bkText)
-                
-                Text("언제 어디서나 당신의 건강을 지키는 스마트한 선택, 반창고앱!")
-                    .font(.system(size: 15))
-                    .foregroundColor(.greyDeep)
+//                Text("환영합니다")
+//                    .font(.system(size: 26, weight: .bold))
+//                    .foregroundColor(.bkText)
+//                
+//                Text("언제 어디서나 당신의 건강을 지키는 스마트한 선택, 반창고앱!")
+//                    .font(.system(size: 15))
+//                    .foregroundColor(.greyDeep)
                 
                 Spacer()
                 
                 
                 // MARK: - 카카오버튼
-                
                 Button {
                     // TODO:
                     authViewModel.kakaoLogin()
@@ -86,9 +85,18 @@ struct LoginView: View {
                 }
             }*/
             .padding(.bottom, 100)
+            //.background(.green2)
+            .background(
+                Image("login_img") // "img_login"을 배경으로 설정
+                //Image("img_login")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .edgesIgnoringSafeArea(.all) // 배경이 화면 전체를 채우도록 설정
+            )
         }
         
     }
+
 }
 
 

@@ -40,7 +40,7 @@ struct AuthenticatedView: View {
                LoadingView() // 로딩 화면 표시
            } else if authViewModel.isLoggedIn{
                TabView (selection: $selectedTab) {
-                   SearchView() // draw 변수를 Binding으로 전달
+                   HealthView() // draw 변수를 Binding으로 전달
                        .onDisappear {
                            // print("hello")
                        }

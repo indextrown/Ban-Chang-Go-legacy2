@@ -27,7 +27,5 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>앱이 현재 위치를 사용하여 지도에 표시합니다.</string>
 </dict>
 </plist>

@@ -549,10 +549,10 @@ struct HalfModalView: View {
                 }
                 
                 
-                /*
-                Text("위도: \(place.coordinate.latitude)")
-                Text("경도: \(place.coordinate.longitude)")
-                 */
+                
+//                Text("위도: \(place.coordinate.latitude)")
+//                Text("경도: \(place.coordinate.longitude)")œ
+                 
             }
             Spacer()
         }
