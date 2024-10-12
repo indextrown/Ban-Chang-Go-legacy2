@@ -47,13 +47,13 @@ struct AuthenticatedView: View {
                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                        //.frame(maxWidth: 20, maxHeight: 20)
                        .tabItem {
-                           Label("반창뉴스", systemImage: "house")
+                           Label("반창헬스", systemImage: "house")
                        }
                        .tag(0)
 
                    HomeView()
                        .tabItem {
-                           Label("약국지도", systemImage: "magnifyingglass")
+                           Label("약국지도", systemImage: "map") //magnifyingglass
                        }
                        .tag(1)
                    

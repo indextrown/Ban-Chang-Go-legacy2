@@ -155,9 +155,9 @@ struct ContentView: View {
                                 .padding(20)
                         }
                     
-                    RectViewH(height: 300, color: .white)
+                    RectViewH(height: 600, color: .white)
                         .overlay {
-                            Text("오늘의 뉴스")
+                            Text("반창 뉴스")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
@@ -170,31 +170,6 @@ struct ContentView: View {
         .padding(.horizontal, 20)
         .background(Color.gray1) // 배경색 설정
         .background(.maincolor) // 배경색 설정//.edgesIgnoringSafeArea(.all) // 안전 영역을 무시하고 전체 화면에 배경색 적용
-    }
-}
-
-struct RectViewWH: View {
-    var width: CGFloat = 100
-    var height: CGFloat = 100
-    var color: Color = .gray1
-
-    var body: some View {
-        Rectangle()
-            .fill(color)
-            .frame(width: width, height: height)
-            .cornerRadius(10)
-    }
-}
-
-struct RectViewH: View {
-    var height: CGFloat = 100
-    var color: Color = .gray1
-
-    var body: some View {
-        Rectangle()
-            .fill(color)
-            .frame(height: height)
-            .cornerRadius(20)
     }
 }
 
@@ -322,7 +297,7 @@ RectViewH(height: 130, color: .white)
                     .font(.system(size: 30))
                     .fontWeight(.bold)
                     .foregroundColor(.mainorange)
-                
+                x
                 Text("걸음")
                     .fontWeight(.bold)
                     .foregroundColor(.black)

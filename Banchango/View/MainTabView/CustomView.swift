@@ -22,23 +22,42 @@ struct PedometerView: View {
                         Text("Your Text Here") // 텍스트 추가
                             .font(.headline)
                             .foregroundColor(.black) // 텍스트 색상
-                        
                     }
                 )
         }
         .padding(30)
     }
-        
 }
 
+struct RectViewWH: View {
+    var width: CGFloat = 100
+    var height: CGFloat = 100
+    var color: Color = .gray1
 
-//#Preview {
-//    PedometerView()
-//}
+    var body: some View {
+        Rectangle()
+            .fill(color)
+            .frame(width: width, height: height)
+            .cornerRadius(10)
+    }
+}
 
-//#Preview {
-//    SearchView()
-//}
+struct RectViewH: View {
+    var height: CGFloat = 100
+    var color: Color = .gray1
+
+    var body: some View {
+        Rectangle()
+            .fill(color)
+            .frame(height: height)
+            .cornerRadius(20)
+    }
+}
+
+#Preview {
+    PedometerView()
+}
+
 
 
 
