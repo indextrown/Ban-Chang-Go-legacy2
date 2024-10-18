@@ -27,5 +27,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSMotionUsageDescription</key>
+	<string>이 앱은 걸음 수를 측정하기 위해 모션 데이터를 사용합니다.</string>
 </dict>
 </plist>
