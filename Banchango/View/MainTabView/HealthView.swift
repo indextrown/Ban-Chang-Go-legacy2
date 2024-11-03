@@ -91,7 +91,7 @@ struct ContentView: View {
             
                     RectViewH(height: 300, color: .white)
                         .overlay {
-                            Text("10월간 평균 걸음 수는?")
+                            Text("이번주 평균 걸음 수는?")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
@@ -104,12 +104,13 @@ struct ContentView: View {
                     
                     RectViewH(height: 600, color: .white)
                         .overlay {
-                            Text("반창 뉴스")
+                            Text("나의 건강 그래프")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
                                 .padding()
                                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading) // 좌측 상단 정렬
+                        
                         }
                 }
             }
